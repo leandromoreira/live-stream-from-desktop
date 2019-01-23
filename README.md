@@ -20,26 +20,26 @@ curl
 #### HLS
 
 Run this server in one of your tabs:
-
+```bash
 curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_http_server.sh | sh
-
+```
 Run this encoder in another of your tabs:
-
+```bash
 curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_hls_low_latency_live_stream.sh | sh
-
+```
 Access the stream at http://localhost:8080/stream.m3u8 or at [clappr's demo page](http://clappr.io/demo/#dmFyIHBsYXllckVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicGxheWVyLXdyYXBwZXIiKTsKCnZhciBwbGF5ZXIgPSBuZXcgQ2xhcHByLlBsYXllcih7CiAgc291cmNlOiAnaHR0cDovL2xvY2FsaG9zdDo4MDgwL3N0cmVhbS5tM3U4JywKICBwb3N0ZXI6ICdodHRwOi8vY2xhcHByLmlvL3Bvc3Rlci5wbmcnLAogIGhsc2pzQ29uZmlnOiB7bGl2ZVN5bmNEdXJhdGlvbkNvdW50OiAyfSwKICBhdXRvUGxheTogdHJ1ZSwKICBtdXRlOiB0cnVlLAogIGhlaWdodDogMzYwLAogIHdpZHRoOiA2NDAKfSk7CgpwbGF5ZXIuYXR0YWNoVG8ocGxheWVyRWxlbWVudCk7Cgp2YXIgcCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInAiKTsKcC5zdHlsZS5jc3NUZXh0ID0gInotaW5kZXg6IDk5OTk5OTsgcG9zaXRpb246YWJzb2x1dGU7IHJpZ2h0OjA7IHRvcDowOyBmb250LXNpemU6IDM0cHg7IGNvbG9yOiBibGFjazsgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IiA7CmRvY3VtZW50LmJvZHkucHJlcGVuZChwKTsKbXlJbnRlcnZhbElEID0gc2V0SW50ZXJ2YWwoKCk9PiBwLmlubmVyVGV4dCA9IG5ldyBEYXRlKCkudG9Mb2NhbGVTdHJpbmcoKSwgMTAwMCk7)
 
 
 #### MPEG-DASH
 
 Run this server in one of your tabs:
-
+```bash
 curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_http_server.sh | sh
-
+```
 Run this encoder in another of your tabs:
-
+```bash
 curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_mpeg_dash_low_latency_live_stream.sh | sh
-
+```
 Access the stream at http://localhost:8080/stream.mpd
 
 ### Requirements
