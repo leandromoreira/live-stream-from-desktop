@@ -14,7 +14,7 @@ trap finish EXIT
 
 wget -q https://github.com/google/fonts/raw/master/apache/opensans/OpenSans-Bold.ttf -O OpenSans-Bold.ttf
 
-docker run --rm -v $(pwd):/files jrottenberg/ffmpeg:4.1 \
+docker run --rm -v $(pwd):/files jrottenberg/ffmpeg:4.1 -hide_banner \
         -re -f lavfi -i "testsrc2=size=1280x720:rate=30" -pix_fmt yuv420p \
         -c:v libx264 -x264opts keyint=30:min-keyint=30:scenecut=-1 \
         -tune zerolatency -profile:v high -preset veryfast -bf 0 -refs 3 \
