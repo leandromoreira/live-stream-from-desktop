@@ -23,6 +23,33 @@ npm install http-server -g
 wget -O bunny_1080p_30fps.mp4 http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4
 
 ```
+### Simulating an HLS and MPEG-DASH live streaming for latency comparision
+
+#### HLS
+
+```
+#start hls encoder/packager at one tab
+./start_hls_low_latency_live_stream.sh
+
+
+#start http server at the other tab
+./start_http_server.sh
+```
+
+Access the stream at http://localhost:8080/stream.m3u8 or at [clappr's demo page](http://clappr.io/demo/#dmFyIHBsYXllckVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicGxheWVyLXdyYXBwZXIiKTsKCnZhciBwbGF5ZXIgPSBuZXcgQ2xhcHByLlBsYXllcih7CiAgc291cmNlOiAnaHR0cDovL2xvY2FsaG9zdDo4MDgwL3N0cmVhbS5tM3U4JywKICBwb3N0ZXI6ICdodHRwOi8vY2xhcHByLmlvL3Bvc3Rlci5wbmcnLAogIGhsc2pzQ29uZmlnOiB7bGl2ZVN5bmNEdXJhdGlvbkNvdW50OiAyfSwKICBhdXRvUGxheTogdHJ1ZSwKICBtdXRlOiB0cnVlLAogIGhlaWdodDogMzYwLAogIHdpZHRoOiA2NDAKfSk7CgpwbGF5ZXIuYXR0YWNoVG8ocGxheWVyRWxlbWVudCk7Cgp2YXIgcCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInAiKTsKcC5zdHlsZS5jc3NUZXh0ID0gInotaW5kZXg6IDk5OTk5OTsgcG9zaXRpb246YWJzb2x1dGU7IHJpZ2h0OjA7IHRvcDowOyBmb250LXNpemU6IDM0cHg7IGNvbG9yOiBibGFjazsgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IiA7CmRvY3VtZW50LmJvZHkucHJlcGVuZChwKTsKbXlJbnRlcnZhbElEID0gc2V0SW50ZXJ2YWwoKCk9PiBwLmlubmVyVGV4dCA9IG5ldyBEYXRlKCkudG9Mb2NhbGVTdHJpbmcoKSwgMTAwMCk7)
+
+#### MPEG-DASH
+
+```
+#start dash encoder/packager at one tab
+./start_mpeg_dash_low_latency_live_stream.sh
+
+
+#start http server at the other tab
+./start_http_server.sh
+```
+
+Access the stream at http://localhost:8080/stream.mpd
 
 ### Simulating a MPEG-DASH live streaming from pattern with burned localtime
 
