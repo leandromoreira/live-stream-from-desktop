@@ -1,24 +1,16 @@
 #!/bin/bash
 
-source check_dependencies.sh
-
 cd /tmp/
 
 finish()
 {
-  # Your cleanup code here
   rm -rf *ts
   rm -rf *m3u8
   rm -rf OpenSans-Bold.ttf
   cd -
 }
 
-# clean the data pro
 trap finish EXIT
-
-#cleaning up old m3u8 and ts files
-rm -rf *ts
-rm -rf *m3u8
 
 wget -q https://github.com/google/fonts/raw/master/apache/opensans/OpenSans-Bold.ttf -O OpenSans-Bold.ttf
 
