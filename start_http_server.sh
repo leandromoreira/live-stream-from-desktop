@@ -1,7 +1,8 @@
 #!/bin/bash
-cd /tmp/
 
 source check_dependencies.sh
+
+cd /tmp/
 
 finish()
 {
