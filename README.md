@@ -9,20 +9,9 @@ It provides guidance to test live streaming (mpeg-dash or hls) or vod from your 
 ### Requirements
 
 ```bash
-# I assume you have brew already
-
-# or you could use curl
-brew install wget
-brew install ffmpeg
-brew install node
-
-# the http server
-npm install http-server -g
-
-#  WARNING IT IS A HUGE download file (263M)
-wget -O bunny_1080p_30fps.mp4 http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4
-
+docker
 ```
+
 ### Simulating an HLS and MPEG-DASH live streaming for latency comparision
 
 #### HLS
@@ -50,6 +39,24 @@ Access the stream at http://localhost:8080/stream.m3u8 or at [clappr's demo page
 ```
 
 Access the stream at http://localhost:8080/stream.mpd
+
+### Requirements
+
+```bash
+# I assume you have brew already
+
+# or you could use curl
+brew install wget
+brew install ffmpeg
+brew install node
+
+# the http server
+npm install http-server -g
+
+#  WARNING IT IS A HUGE download file (263M)
+wget -O bunny_1080p_30fps.mp4 http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4
+
+```
 
 ### Simulating a MPEG-DASH live streaming from pattern with burned localtime
 
