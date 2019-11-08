@@ -85,6 +85,34 @@ ffmpeg -stream_loop -1 \
 -f flv rtmp://<HOST>:1935/live/<STREAM>
 ```
 
+#### Multiple Bitrates 
+
+From a pseudo FFmpeg video source color bar and generated audio signal made of a sine wave with amplitude 1/8. 
+
+```
+ffmpeg -hide_banner \
+-re -f lavfi -i "testsrc2=size=1280x720:rate=30,format=yuv420p" \
+-f lavfi -i "sine=frequency=1000:sample_rate=4800" \
+-c:v libx264 -preset ultrafast -tune zerolatency -profile:v high \
+-b:v 1400k -bufsize 2800k -x264opts keyint=30:min-keyint=30:scenecut=-1 \
+-c:a aac -b:a 128k -f flv rtmp://<HOST>:1935/live/<STREAM> \
+-c:v libx264 -preset ultrafast -tune zerolatency -profile:v high \
+-b:v 750k -bufsize 1500k -s 640x360 -x264opts keyint=30:min-keyint=30:scenecut=-1 \
+-c:a aac -b:a 128k -f flv rtmp://<HOST>:1935/live/<STREAM> 
+```
+
+From a file. 
+
+```
+ffmpeg -stream_loop -1 \
+-i <YOUR_VIDEO>.mp4  -c:v libx264 \
+-x264opts keyint=30:min-keyint=30:scenecut=-1 -tune zerolatency \
+-s 1280x720 -b:v 1400k -bufsize 2800k \
+-f flv rtmp://<HOST>:1935/live/<STREAM> \
+-x264opts keyint=30:min-keyint=30:scenecut=-1 -tune zerolatency \
+-s 640x360 -b:v 750k -bufsize 1500k \
+-f flv rtmp://<HOST>:1935/live/<STREAM>
+```
 
 ### Simulating a MPEG-DASH live streaming from a file
 
