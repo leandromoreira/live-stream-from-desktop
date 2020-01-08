@@ -79,7 +79,7 @@ From a file.
 
 ```
 ffmpeg -stream_loop -1 \
--i <YOUR_VIDEO>.mp4  -c:v libx264 \
+-re -i <YOUR_VIDEO>.mp4  -c:v libx264 \
 -x264opts keyint=30:min-keyint=30:scenecut=-1 -tune zerolatency \
 -s 1280x720 -b:v 1400k -bufsize 2800k \
 -f flv rtmp://<HOST>:1935/live/<STREAM>
@@ -105,7 +105,7 @@ From a file.
 
 ```
 ffmpeg -stream_loop -1 \
--i <YOUR_VIDEO>.mp4  -c:v libx264 \
+-re -i <YOUR_VIDEO>.mp4  -c:v libx264 \
 -x264opts keyint=30:min-keyint=30:scenecut=-1 -tune zerolatency \
 -s 1280x720 -b:v 1400k -bufsize 2800k \
 -f flv rtmp://<HOST>:1935/live/<STREAM> \
@@ -119,7 +119,7 @@ ffmpeg -stream_loop -1 \
 Open a terminal and run the ffmpeg command:
 
 ```
-ffmpeg -stream_loop -1 -i bunny_1080p_30fps.mp4 \
+ffmpeg -stream_loop -1 -re -i bunny_1080p_30fps.mp4 \
        -c:v libx264 -x264opts keyint=30:min-keyint=30:scenecut=-1 \
        -preset superfast -profile:v baseline -level 3.0 \
        -tune zerolatency -s 1280x720 -b:v 1400k \
@@ -142,7 +142,7 @@ Now you can test this with your player (using the URL `http://localhost:8081/str
 Open a terminal and run the ffmpeg command:
 
 ```
-ffmpeg -stream_loop -1 -i bunny_1080p_30fps.mp4 -c:v libx264 \
+ffmpeg -stream_loop -1 -re -i bunny_1080p_30fps.mp4 -c:v libx264 \
           -x264opts keyint=30:min-keyint=30:scenecut=-1 \
           -tune zerolatency -s 1280x720 \
           -b:v 1400k -bufsize 1400k \
