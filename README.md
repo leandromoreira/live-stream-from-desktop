@@ -1,11 +1,11 @@
 # Live stream from your desktop
-It provides guidance to test live streaming (mpeg-dash or hls) or vod from your own desktop, it's useful for testing and learning purposes.
+It provides guidance to test live streaming (mostly RTMP, mpeg-dash or hls) or vod from your own desktop using [FFmpeg](https://ffmpeg.org/), it's pretty useful for testing and learning purposes.
 
 ## MacOS
 
 > #### Tested with:
-> * MacOS High Siera 10.13
-> * **WARNING:** IT WILL DOWNLOAD MORE THAN HUNDREDS OF MBs
+> * MacOS High Siera 10.13, 10.15.2, Ubuntu 18.04
+> * **Warning:** The video asset used for looping streaming is more than hundreds of MBs.
 
 ### Requirements
 
