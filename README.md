@@ -183,14 +183,25 @@ Now you can test this with your player (using the URL `http://localhost:8081/str
 ### Simulating a HLS live streaming from MacOS camera
 
 
+#### Playing Camera/Mic in FFplay
+
+```
+ffplay  -f avfoundation -video_device_index 0 -audio_device_index 0 \
+        -pixel_format uyvy422 -framerate 30 -video_size 1280x720 -i "default"
+```
+
+#### Camera/Mic to HLS
+
 Open a terminal and run the ffmpeg command:
 
 ```
-ffmpeg -re -pix_fmt uyvy422 -f avfoundation -i "0" -pix_fmt yuv420p \
-          -x264opts keyint=30:min-keyint=30:scenecut=-1 \
-          -tune zerolatency -s 1280x720 \
-          -b:v 1400k -bufsize 1400k \
-          -hls_start_number_source epoch -f hls stream.m3u8
+ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
+        -pixel_format uyvy422 -framerate 30 -video_size 640x480 -i "default" \
+        -c:v libx264 -x264opts keyint=30:min-keyint=30:scenecut=-1 \
+        -tune zerolatency -b:v 1000k -bufsize 2000k \
+        -c:a aac -b:a 128k \
+        -hls_time 5 -hls_start_number_source epoch \
+        -f hls stream.m3u8
 ```
 
 In another tab, run the following command to fire up the server:
@@ -199,4 +210,6 @@ In another tab, run the following command to fire up the server:
 http-server -a :: -p 8081 --cors -c-1
 ```
 
-Now you can test this with your player (using the URL `http://localhost:8081/stream.mpd`).
+Now you can test this with your player (using the URL `http://localhost:8081/stream.m3u8`).
+
+
