@@ -14,7 +14,7 @@ docker
 wget
 curl
 ```
-### Simulating an HLS with multiple renditions/resolutions and DVR
+### Simulating HLS / DASH with multiple renditions/resolutions and DVR
 
 #### HLS
 
@@ -28,6 +28,17 @@ curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-deskto
 ```
 Access the stream at http://localhost:8080/master.m3u8 or at [clappr's demo page](http://clappr.io/demo/#dmFyIHBsYXllckVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicGxheWVyLXdyYXBwZXIiKTsKCnZhciBwbGF5ZXIgPSBuZXcgQ2xhcHByLlBsYXllcih7CiAgc291cmNlOiAnaHR0cDovL2xvY2FsaG9zdDo4MDgwL21hc3Rlci5tM3U4JywKICBwb3N0ZXI6ICdodHRwOi8vY2xhcHByLmlvL3Bvc3Rlci5wbmcnLAogIG11dGU6IHRydWUsCiAgaGVpZ2h0OiAzNjAsCiAgd2lkdGg6IDY0MAp9KTsKCnBsYXllci5hdHRhY2hUbyhwbGF5ZXJFbGVtZW50KTsK)
 
+#### DASH
+
+Run this server in one of your tabs:
+```bash
+curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_http_server.sh | sh
+```
+Run this encoder in another of your tabs:
+```bash
+curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_dash_abr_live_stream.sh.sh | sh
+```
+Access the stream at http://localhost:8080/out.mpd or go to [dashjs's demo page](http://reference.dashif.org/dash.js/v2.3.0/samples/dash-if-reference-player/index.html)
 
 ### Simulating an HLS and MPEG-DASH live streaming for latency comparison
 
