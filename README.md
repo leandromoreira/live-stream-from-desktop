@@ -36,9 +36,9 @@ curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-deskto
 ```
 Run this encoder in another of your tabs:
 ```bash
-curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_dash_abr_live_stream.sh.sh | sh
+curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_dash_abr_live_stream.sh | sh
 ```
-Access the stream at http://localhost:8080/out.mpd or go to [dashjs's demo page](http://reference.dashif.org/dash.js/v2.3.0/samples/dash-if-reference-player/index.html)
+Access the stream at http://localhost:8080/out.mpd or go to [dashjs's demo page](http://reference.dashif.org/dash.js/v2.3.0/samples/dash-if-reference-player/index.html?mpd=http://localhost:8080/out.mpd)
 
 ### Simulating an HLS and MPEG-DASH live streaming for latency comparison
 
