@@ -254,6 +254,8 @@ ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
 
 # Bonus Round:
 
+## FFmpeg generating noise from /dev/random
+
 It generates video and audio from [/dev/urandom](https://en.wikipedia.org/wiki//dev/random) device, it produces a stream that looks A LOT like [an old analog TV noise](https://en.wikipedia.org/wiki/Noise_(video)).
 
 > In analog video and television, is a random dot pixel pattern of static displayed when no transmission signal is obtained by the antenna receiver
@@ -267,3 +269,14 @@ ffmpeg -f rawvideo -pixel_format rgb8 -video_size 640x360 \
 ```
 
 ![old tv noise](https://upload.wikimedia.org/wikipedia/commons/a/a8/TV_noise.jpg)
+
+
+## FFmpeg generating video from FFmpeg binary program
+
+```bash
+# you can replace the binary by any large binary chunk of data (library...)
+ffmpeg -f rawvideo -pixel_format rgb8 -video_size 32x23 \
+       -framerate 60 -i /usr/local/Cellar/ffmpeg/4.3_2/bin/ffmpeg \
+       -f u8 -ar 48100 -ac 1 -i /usr/local/Cellar/ffmpeg/4.3_2/bin/ffmpeg \
+       -sws_flags neighbor -s 640x360 -t 5s -pix_fmt yuv420p ffmpeg.mp4
+```
