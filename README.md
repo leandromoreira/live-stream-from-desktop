@@ -250,3 +250,20 @@ ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
         -c:a aac -b:a 128k \
         -f flv rtmp://yourserver:1935/live/yourstream_key
 ```
+
+
+# Bonus Round:
+
+It generates video and audio from [/dev/urandom](https://en.wikipedia.org/wiki//dev/random) device, it produces a stream that looks A LOT like [an old analog TV noise](https://en.wikipedia.org/wiki/Noise_(video)).
+
+> In analog video and television, is a random dot pixel pattern of static displayed when no transmission signal is obtained by the antenna receiver
+
+```bash
+# if you mess with the -video_size you can have bigger/smaller noise patterns than this. :D
+ffmpeg -f rawvideo -pixel_format rgb8 -video_size 640x360 \
+       -framerate 60 -i /dev/urandom \
+       -f u8 -ar 48100 -ac 1 -i /dev/urandom \
+       -sws_flags neighbor -s 640x360 urandom.mp4       
+```
+
+![old tv noise](https://upload.wikimedia.org/wikipedia/commons/a/a8/TV_noise.jpg)
