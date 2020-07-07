@@ -280,3 +280,10 @@ ffmpeg -f rawvideo -pixel_format rgb8 -video_size 32x23 \
        -f u8 -ar 48100 -ac 1 -i /usr/local/Cellar/ffmpeg/4.3_2/bin/ffmpeg \
        -sws_flags neighbor -s 640x360 -t 5s -pix_fmt yuv420p ffmpeg.mp4
 ```
+
+## FFmpeg generating video from Mandelbrot set
+
+```bash
+ffplay -f lavfi -i mandelbrot=size=640x320:rate=60 \
+       -vf "drawtext = text = 'UTC %{gmtime}':fontsize=24:fontcolor=white:boxcolor=black@0.5:x=(w-text_w)/2:y=4:box=1:boxborderw=5"
+```
