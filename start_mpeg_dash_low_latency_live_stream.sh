@@ -12,7 +12,7 @@ finish()
 
 trap finish EXIT
 
-wget -q https://github.com/google/fonts/raw/master/apache/opensans/OpenSans-Bold.ttf -O OpenSans-Bold.ttf
+wget -q https://raw.githubusercontent.com/google/fonts/main/apache/opensanscondensed/OpenSansCondensed-Bold.ttf -O OpenSans-Bold.ttf
 
 docker run --rm -v $(pwd):/files jrottenberg/ffmpeg:4.1 -hide_banner \
         -re -f lavfi -i "testsrc2=size=1280x720:rate=30" -pix_fmt yuv420p \
