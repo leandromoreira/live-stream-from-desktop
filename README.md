@@ -28,6 +28,13 @@ curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-deskto
 ```
 Access the stream at http://localhost:8080/master.m3u8 or at [clappr's demo page](http://clappr.io/demo/#dmFyIHBsYXllckVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgicGxheWVyLXdyYXBwZXIiKTsKCnZhciBwbGF5ZXIgPSBuZXcgQ2xhcHByLlBsYXllcih7CiAgc291cmNlOiAnaHR0cDovL2xvY2FsaG9zdDo4MDgwL21hc3Rlci5tM3U4JywKICBwb3N0ZXI6ICdodHRwOi8vY2xhcHByLmlvL3Bvc3Rlci5wbmcnLAogIG11dGU6IHRydWUsCiAgaGVpZ2h0OiAzNjAsCiAgd2lkdGg6IDY0MAp9KTsKCnBsYXllci5hdHRhY2hUbyhwbGF5ZXJFbGVtZW50KTsK)
 
+##### HLS looping the file
+
+**If you want to use a video file instead of a synthetic media**, run this encoder in another of your tabs:
+```bash
+curl -s https://raw.githubusercontent.com/leandromoreira/live-stream-from-desktop/master/start_hls_abr_live_stream_file_loop.sh | sh
+```
+
 #### DASH
 
 Run this server in one of your tabs:
