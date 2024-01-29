@@ -258,6 +258,16 @@ ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
         -f flv rtmp://yourserver:1935/live/yourstream_key
 ```
 
+### Simulating an SRT live streaming
+
+```bash
+ffmpeg -hide_banner -loglevel verbose \
+    -re -f lavfi -i "testsrc2=size=1280x720:rate=30,format=yuv420p" \
+    -f lavfi -i "sine=frequency=1000:sample_rate=44100" \
+    -c:v libx264 -preset veryfast -tune zerolatency -profile:v baseline \
+    -b:v 1000k -bufsize 2000k -x264opts keyint=30:min-keyint=30:scenecut=-1 \
+    -f mpegts "srt://0.0.0.0:1234?mode=listener&smoother=live&transtype=live"
+```
 
 # Bonus Round:
 
