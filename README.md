@@ -258,7 +258,7 @@ ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
         -f flv rtmp://yourserver:1935/live/yourstream_key
 ```
 
-### Simulating an RTMP live streaming listen server with FFmpeg
+### Simulating an RTMP live streaming listening server with FFmpeg
 
 ```bash
 #!/bin/bash
