@@ -258,6 +258,25 @@ ffmpeg  -f avfoundation -video_device_index 0 -audio_device_index 0 \
         -f flv rtmp://yourserver:1935/live/yourstream_key
 ```
 
+### Simulating an RTMP live streaming listen server with FFmpeg
+
+```bash
+#!/bin/bash
+# this is necessary since ffmpeg stop listening once a player drops
+while true
+do
+        ffmpeg -hide_banner -loglevel verbose \
+          -re -f lavfi -i testsrc2=size=1280x720:rate=30,format=yuv420p \
+          -f lavfi -i sine=frequency=1000:sample_rate=44100 \
+          -c:v libx264 -preset veryfast -tune zerolatency -profile:v baseline \
+          -b:v 1000k -bufsize 2000k -x264opts keyint=30:min-keyint=30:scenecut=-1 \
+          -c:a aac -b:a 128k \
+          -f flv -listen 1 -rtmp_live live "rtmp://0.0.0.0:1935/live/app"
+	sleep 0.4
+done
+
+```
+
 ### Simulating an SRT live streaming
 
 ```bash
