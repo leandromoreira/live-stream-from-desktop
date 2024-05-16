@@ -291,6 +291,21 @@ ffmpeg -hide_banner -loglevel verbose \
 
 # Bonus Round:
 
+## FFmpeg generating sample files for testing purpose
+
+You can replace codecs, duration, text, and parameters (resolution, sample rate, presets, and so on) to attend your needs. Here's 10.5 seconds clip.
+
+```bash
+ffmpeg -y -hide_banner -loglevel verbose \
+    -f lavfi -i 'testsrc2=size=768x432:duration=10.5:rate=30,format=yuv420p' \
+    -f lavfi -i 'sine=frequency=1000:duration=10.5:sample_rate=44100' \
+    -c:v libx264 -preset veryfast -tune zerolatency -profile:v baseline \
+    -vf "drawtext=text='Sample Test H264/AAC':box=1:boxborderw=10:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=64:fontcolor=black" \
+    -b:v 1000k -bufsize 1000k -x264opts 'keyint=30:min-keyint=30:scenecut=-1' \
+    -c:a aac -b:a 128k \
+    sample_10.5s_h246_30fps_768x432_aac_44100.mp4
+```
+
 ## FFmpeg generating noise from /dev/random
 
 It generates video and audio from [/dev/urandom](https://en.wikipedia.org/wiki//dev/random) device, it produces a stream that looks A LOT like [an old analog TV noise](https://en.wikipedia.org/wiki/Noise_(video)).
