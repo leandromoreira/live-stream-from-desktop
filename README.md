@@ -1,5 +1,5 @@
 # Live stream from your desktop
-It provides guidance to test live streaming (mostly RTMP, mpeg-dash or hls) or vod from your own desktop using [FFmpeg](https://ffmpeg.org/), it's pretty useful for testing and learning purposes.
+It provides guidance to test live streaming (mostly RTMP, SRT, mpeg-dash or hls) or vod from your own desktop using [FFmpeg](https://ffmpeg.org/), it's pretty useful for testing and learning purposes.
 
 ## MacOS
 
