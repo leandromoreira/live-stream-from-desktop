@@ -27,7 +27,11 @@ docker run --rm -v /tmp/fonts/:/usr/share/fonts -v /tmp/:/files jrottenberg/ffmp
   -c:v libvpx-vp9 \
   -keyint_min 60 -g 60 ${VP9_LIVE_PARAMS} \
   -b:v 1400k -bufsize 2800k \
-  -vf "drawtext=text='VP9/Opus Live Streaming %{localtime}':box=1:boxborderw=10:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=42:fontcolor=black" \
+  -vf "drawtext=text='Source > FFmpeg
+Codecs > VP9/Opus
+Name > Dash Live Streaming
+UTC > %{localtime}
+Frame > %{frame_num}':box=1:boxborderw=10:x=(w-text_w)/2:y=(h-text_h)/2:fontsize=42:fontcolor=black" \
   -f webm_chunk \
   -header "/files/glass_360.hdr" \
   -chunk_start_index 1 \
